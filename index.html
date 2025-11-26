@@ -24,13 +24,19 @@
             justify-content: space-between;
             align-items: center;
             box-sizing: border-box;
-            <a href="about.html">About</a>
         }
 
         header a {
             color: white;
             text-decoration: none;
             font-size: 20px;
+        }
+
+        /* NAVIGATION LINKS CONTAINER */
+        .nav-links {
+            display: flex;
+            gap: 20px; /* Space between links */
+            align-items: center;
         }
 
         /* PHOTO GRID */
@@ -58,9 +64,11 @@
 <body>
     <header>
         <div class="logo">ItsLeo.Iso</div>
-        <a href="https://www.instagram.com/itsleo.iso/" target="_blank">
-            &#x1F465; Insta
-        </a>
+        <div class="nav-links"> <a href="about.html">About</a>
+            <a href="https://www.instagram.com/itsleo.iso/" target="_blank">
+                &#x1F465; Insta
+            </a>
+        </div>
     </header>
 
     <div class="gallery">
