@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>ItsLeo.Iso Photography</title>
 
     <style>
@@ -35,20 +35,26 @@
         /* PHOTO GRID */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px,));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             padding: 40px;
         }
 
-        .photo-placeholder {
+        .photo {
             width: 100%;
-            padding-bottom: 100%; /* perfect square */
-            background: red;
+            overflow: hidden;
+            aspect-ratio: 1 / 1; /* maintain square shape */
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
         }
     </style>
 </head>
 <body>
-
     <header>
         <div class="logo">ItsLeo.Iso</div>
         <a href="https://www.instagram.com/itsleo.iso/" target="_blank">
@@ -57,12 +63,9 @@
     </header>
 
     <div class="gallery">
-        <div class="photo-placeholder"></div>
-        <div class="photo-placeholder"></div>
-        <div class="photo-placeholder"></div>
-        <div class="photo-placeholder"></div>
-        <div class="photo-placeholder"></div>
+        <div class="photo"><img src="Assets/DSC_0765.jpg" alt="Photo 1" /></div>
+        <div class="photo"><img src="Assets/DSC_0783.jpg" alt="Photo 2" /></div>
+        <div class="photo"><img src="Assets/DSC_0792.jpg" alt="Photo 3" /></div>
     </div>
-
 </body>
 </html>
