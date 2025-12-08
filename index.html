@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="doc-title">ItsLeo.Iso - Portfolio Fotografico</title>
+    <!-- Carica Tailwind CSS per lo styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Imposta il font Inter come predefinito */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fb;
+        }
+        /* Stile personalizzato per l'elemento principale */
+        .main-content-container {
+            min-height: calc(100vh - 80px); 
+        }
+        /* Stile per i link di lingua non attivi */
+        .lang-link-inactive {
+             @apply text-gray-600 cursor-pointer hover:text-pink-600 transition;
+        }
+        /* Stile per il link di lingua attivo */
+        .lang-link-active {
+            @apply text-pink-600 font-bold cursor-default;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Fisso e Responsive -->
+    <header class="bg-white shadow-md sticky top-0 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+            
+            <!-- Logo/Titolo nell'angolo sinistro -->
+            <div class="flex-shrink-0">
+                <a href="#" class="text-2xl font-extrabold text-gray-900 tracking-wider">
+                    ItsLeo.<span class="text-pink-600">Iso</span>
+                </a>
+            </div>
+
+            <!-- Elenchi di Navigazione (Centrati) -->
+            <nav class="hidden md:flex flex-grow justify-center">
+                <ul class="flex space-x-8" id="nav-links">
+                    <li><a href="#landscape" class="nav-link text-gray-600 hover:text-pink-600 font-medium transition duration-150 ease-in-out px-3 py-2 rounded-lg">Landscape</a></li>
+                    <li><a href="#portrait" class="nav-link text-gray-600 hover:text-pink-600 font-medium transition duration-150 ease-in-out px-3 py-2 rounded-lg">Portrait</a></li>
+                    <li><a href="#wildlife" class="nav-link text-gray-600 hover:text-pink-600 font-medium transition duration-150 ease-in-out px-3 py-2 rounded-lg">Wildlife</a></li>
+                </ul>
+            </nav>
+
+            <!-- Elementi Destri: Selettore Lingua, Instagram, Menu Mobile -->
+            <div class="flex items-center space-x-4">
+                
+                <!-- Selettore Lingua IT | DE | EN -->
+                <div class="text-sm font-medium space-x-1 flex items-center">
+                    <span id="lang-it" data-lang="IT" onclick="setLanguage('IT')" class="lang-link-active">IT</span>
+                    <span class="text-gray-400">|</span>
+                    <span id="lang-de" data-lang="DE" onclick="setLanguage('DE')" class="lang-link-inactive">DE</span>
+                    <span class="text-gray-400">|</span>
+                    <span id="lang-en" data-lang="EN" onclick="setLanguage('EN')" class="lang-link-inactive">EN</span>
+                </div>
+
+                <!-- Link Instagram -->
+                <a href="https://www.instagram.com/itsleo.iso/" target="_blank" rel="noopener noreferrer" 
+                   class="text-gray-600 hover:text-pink-600 transition duration-150 ease-in-out">
+                    <!-- Icona Instagram SVG (24x24) -->
+                    <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.76.01 3.7.05 1.05.05 1.7.2 2.17.37.58.2.94.43 1.35.85.42.42.65.77.85 1.35.17.47.32 1.12.37 2.17.03.94.04 1.27.04 3.71s-.01 2.76-.05 3.7c-.05 1.05-.2 1.7-.37 2.17-.2.58-.43.94-.85 1.35-.42.42-.77.65-1.35.85-.47.17-1.12.32-2.17.37-.94.03-1.27.04-3.7.04s-2.76-.01-3.7-.05c-1.05-.05-1.7-.2-2.17-.37-.58-.2-.94-.43-1.35-.85-.42-.42-.65-.77-.85-1.35-.17-.47-.32-1.12-.37-2.17-.03-.94-.04-1.27-.04-3.7s.01-2.76.05-3.7c.05-1.05.2-1.7.37-2.17.2-.58.43-.94.85-1.35.42-.42.77-.65 1.35-.85.47-.17 1.12-.32 2.17-.37.94-.03 1.27-.04 3.7-.04zm0-2.001c-2.71 0-3.05.01-4.1.05-1.12.06-1.92.24-2.76.57-.84.33-1.46.74-2.12 1.4-1.15 1.15-1.48 2.37-1.57 3.59-.04 1.05-.05 1.39-.05 4.1s.01 3.05.05 4.1c.08 1.22.41 2.44 1.57 3.59.66.66 1.28 1.07 2.12 1.4.84.33 1.64.51 2.76.57 1.05.04 1.39.05 4.1.05s3.05-.01 4.1-.05c1.12-.06 1.92-.24 2.76-.57.84-.33 1.46-.74 2.12-1.4 1.15-1.15 1.48-2.37 1.57-3.59.04-1.05.05-1.39.05-4.1s-.01-3.05-.05-4.1c-.08-1.22-.41-2.44-1.57-3.59-.66-.66-1.28-1.07-2.12-1.4-.84-.33-1.64-.51-2.76-.57-1.05-.04-1.39-.05-4.1-.05zm0 2.991c1.86 0 3.37 1.51 3.37 3.37s-1.51 3.37-3.37 3.37-3.37-1.51-3.37-3.37 1.51-3.37 3.37-3.37zm0-2.001c-2.93 0-5.37 2.44-5.37 5.37s2.44 5.37 5.37 5.37 5.37-2.44 5.37-5.37-2.44-5.37-5.37-5.37zm6.75 1.291c0 .59-.48 1.07-1.07 1.07-.59 0-1.07-.48-1.07-1.07s.48-1.07 1.07-1.07c.59 0 1.07.48 1.07 1.07z" />
+                    </svg>
+                </a>
+                
+                <!-- Menu Mobile (Icona Burger) -->
+                <div class="md:hidden">
+                    <button class="text-gray-600 hover:text-pink-600 focus:outline-none">
+                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenuto Principale con Foto Iniziale (Quadrato Rosa) -->
+    <main class="main-content-container flex flex-col items-center justify-center p-4 sm:p-8">
+        
+        <h1 id="main-heading" class="text-4xl sm:text-5xl font-bold text-gray-800 mb-8 text-center">
+            Benvenuto nel Portfolio
+        </h1>
+        
+        <p id="p-description" class="text-lg text-gray-600 mb-12 text-center max-w-xl">
+            Qui puoi esplorare le mie opere. L'elemento qui sotto rappresenta la foto di apertura della pagina.
+        </p>
+
+        <!-- La Foto: Un Grande Quadrato Rosa Arrotondato e con Ombra -->
+        <div id="initial-photo" class="w-full max-w-md aspect-square bg-pink-400 rounded-3xl shadow-xl transform transition duration-300 hover:scale-[1.02] flex items-center justify-center">
+            <span id="placeholder-text" class="text-white text-xl font-semibold select-none">
+                Placeholder Foto
+            </span>
+        </div>
+
+    </main>
+
+    <!-- Footer Semplice -->
+    <footer class="bg-gray-800 text-white p-4 text-center">
+        <p class="text-sm">
+            &copy; 2024 ItsLeo.Iso. <span id="footer-rights">Tutti i diritti riservati.</span>
+        </p>
+    </footer>
+
+    <script>
+        const translations = {
+            'IT': {
+                title: "ItsLeo.Iso - Portfolio Fotografico",
+                headerTitle: "ItsLeo.Iso",
+                nav: ["Landscape", "Portrait", "Wildlife"],
+                mainHeading: "Benvenuto nel Portfolio",
+                description: "Qui puoi esplorare le mie opere. L'elemento qui sotto rappresenta la foto di apertura della pagina.",
+                placeholder: "Placeholder Foto",
+                footer: "Tutti i diritti riservati."
+            },
+            'DE': {
+                title: "ItsLeo.Iso - Fotografie Portfolio",
+                headerTitle: "ItsLeo.Iso",
+                nav: ["Landschaft", "Porträt", "Tierwelt"],
+                mainHeading: "Willkommen im Portfolio",
+                description: "Hier können Sie meine Arbeiten erkunden. Das Element unten stellt das Eröffnungsfoto der Seite dar.",
+                placeholder: "Platzhalter Foto",
+                footer: "Alle Rechte vorbehalten."
+            },
+            'EN': {
+                title: "ItsLeo.Iso - Photography Portfolio",
+                headerTitle: "ItsLeo.Iso",
+                nav: ["Landscape", "Portrait", "Wildlife"],
+                mainHeading: "Welcome to the Portfolio",
+                description: "Here you can explore my work. The element below represents the opening photo of the page.",
+                placeholder: "Photo Placeholder",
+                footer: "All rights reserved."
+            }
+        };
+
+        function setLanguage(lang) {
+            const t = translations[lang];
+
+            // 1. Aggiorna il titolo del documento
+            document.getElementById('doc-title').textContent = t.title;
+            
+            // 2. Aggiorna gli elementi di navigazione
+            document.querySelectorAll('.nav-link').forEach((link, index) => {
+                link.textContent = t.nav[index];
+            });
+
+            // 3. Aggiorna il contenuto principale
+            document.getElementById('main-heading').textContent = t.mainHeading;
+            document.getElementById('p-description').textContent = t.description;
+            document.getElementById('placeholder-text').textContent = t.placeholder;
+
+            // 4. Aggiorna il footer
+            document.getElementById('footer-rights').textContent = t.footer;
+            
+            // 5. Aggiorna l'attributo lang di HTML (per accessibilità)
+            document.documentElement.lang = lang.toLowerCase();
+
+            // 6. Evidenzia il selettore di lingua attivo
+            ['IT', 'DE', 'EN'].forEach(code => {
+                const el = document.getElementById(`lang-${code.toLowerCase()}`);
+                if (code === lang) {
+                    el.className = 'lang-link-active';
+                } else {
+                    el.className = 'lang-link-inactive';
+                }
+            });
+        }
+
+        // Imposta la lingua iniziale al caricamento
+        window.onload = () => setLanguage('IT');
+    </script>
+
+</body>
+</html>
